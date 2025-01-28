@@ -39,34 +39,44 @@
       <h1 class="font-Monigue font-regular text-[#fc5151] text-9xl">PROJECTS</h1>
       <button class="bg-[#fc5151] text-[#1D3557] font-semibold w-[10%] rounded-full p-2">View All</button>
     </div>
-    <div class="bg-[#1D3557] px-24 flex items-center justify-between">
-      <h2 class="text-7xl">Explore our recent projects showcasing creativity, innovation, and impactful design solutions.</h1>
-    </div>
-    <div class="grid grid-cols-2 grid-rows-2">
-      <div class="flex flex-col col-start-1 items-center justify-center">
-        <img src="" alt="" class="h-fit w-fit">
-        <h3>Earthling Digital</h3>
-        <p>(2024)</p>
+    <div class="bg-[#1D3557] flex flex-col gap-12">
+      <div class= "px-24 flex items-center justify-between">
+        <h2 class="text-7xl">Explore our recent projects showcasing creativity, innovation, and impactful design solutions.</h1>
       </div>
-      <div class="flex flex-col col-start-2 items-center justify-center">
-        <img src="" alt="" class="h-fit w-fit">
-        <h3>Earthling Digital</h3>
-        <p>(2024)</p>
-      </div>
-      <div class="flex flex-col col-start-1 row-start-2 items-center justify-center">
-        <img src="" alt="" class="h-fit w-fit">
-        <h3>Earthling Digital</h3>
-        <p>(2024)</p>
-      </div>
-      <div class="flex flex-col col-start-2 row-start-2 items-center justify-center">
-        <img src="" alt="" class="h-fit w-fit">
-        <h3>Earthling Digital</h3>
-        <p>(2024)</p>
-      </div>
+          <div id="card-project" class="grid grid-cols-2 "></div>
     </div>
 
+    <script>
 
-  
-</body>
+  async function loadComponent() {
+    const response = await fetch('projects/card.html');
+    return response.text();
+  }
+
+  async function loadData() {
+    const response = await fetch('projects/data.json');
+    return response.json();
+  }
+
+  async function renderCards() {
+    const component = await loadComponent();
+    const data = await loadData();
+    const grid = document.getElementById('card-project');
+    
+    data.forEach(item => {
+      let card = component
+        .replace('{image}', item.image)
+        .replace('{alt}', item.alt)
+        .replace('{title}', item.title)
+        .replace('{description}', item.description)
+        .replace('{link}', item.link);
+        grid.innerHTML += card;
+    });
+  }
+
+  renderCards();
+
+    </script>
+  </body>
 
 </html>
