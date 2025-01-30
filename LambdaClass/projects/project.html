@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css" />
+    <title>Proyecto - {title}</title>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <div class="flex justify-between px-24 pt-12 bg-[#1D3557]">
+        <h3 class="text-[#a8dadc] font-Gambetta italic text-xl">(Selected Work)</h3>
+        <p class="text-[#a8dadc] font-Gambetta italic text-xl">(01)</p>
+      </div>
+        <div class="bg-[#1D3557] pt-6 px-24 flex items-center justify-between">
+          <h1 class="font-Monigue font-regular text-[#fc5151] text-[12rem] uppercase leading-none title">{title}</h1>
+        </div>
+        <div class="bg-[#1D3557] flex flex-col gap-12">
+            <h2 class="text-6xl font-Inter font-semibold text-[#a8dadc] px-24 intro">{intro}</h2>
+        </div>
+        <div class="grid grid-cols-3">
+            <p class="services">{services}</p>
+            <p class="year">{year}</p>
+            <p class="title">{title}</p>
+        </div>
+        
+        
+
+    <script>
+       document.addEventListener("DOMContentLoaded", function () {
+    // Obtener el slug de la URL
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get("slug");
+
+    if (!slug) {
+        document.body.innerHTML = "<h1>Error: Proyecto no encontrado</h1>";
+        return;
+    }
+
+    fetch('data2.json')
+        .then(response => response.json())
+        .then(data => {
+            const project = data.find(item => item.slug === slug);
+            if (!project) {
+                document.body.innerHTML = "<h1>Proyecto no encontrado</h1>";
+                return;
+            }
+
+            // Cambiar el contenido de los elementos con clase 'project-title'
+            const projectTitles = document.querySelectorAll(".title");
+            projectTitles.forEach(element => {
+                element.innerHTML = project.title;
+            });
+
+            // Cambiar el contenido de los elementos con clase 'project-intro'
+            const projectIntros = document.querySelectorAll(".intro");
+            projectIntros.forEach(element => {
+                element.innerHTML = project.intro;
+            });
+
+            // Cambiar el contenido de los elementos con clase 'project-services'
+            const projectServices = document.querySelectorAll(".services");
+            projectServices.forEach(element => {
+                element.innerHTML = project.services;
+            });
+
+            // Cambiar el contenido de los elementos con clase 'project-year'
+            const projectYears = document.querySelectorAll(".year");
+            projectYears.forEach(element => {
+                element.innerHTML = project.year; // Si el año está presente en tu JSON, actualízalo
+            });
+        })
+        .catch(error => console.error("Error cargando datos:", error));
+});
+
+
+    </script>
+</body>
+</html>

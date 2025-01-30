@@ -17,21 +17,23 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="bg-[#fc5151] relative w-full">
-  <header class="absolute text-[#fc5151] grid grid-cols-6 px-8 py-4 w-full">
-    <div class="col-span-3 col-start-1"><img src="/vite.svg" alt=""></div>
-    <ul class="col-span-2 col-start-4 flex items-center justify-start gap-12 px-24">
-      <li>Work</li>
-      <li>Service</li>
-      <li>About</li>
-    </ul>
-    <button class="flex justify-end px-8 items-center underline">Let's Talk!</button>
-  </header>
-  <div class="grid md:grid-cols-2 h-screen" id="home-section">
-    <img src="" alt="" class="bg-white">
-    <div class="bg-[#1D3557] p-24">
-      <h1 class="font-Monigue text-[#fc5151] text-9xl font-monigue">EDC. <br>DSGN</h1>
+<body class="bg-[#1d3557] relative w-full">
+  <div class="grid grid-cols-2 overflow-y-auto scrollbar" id="home-section">
+   <img src="/Earthling-Logo.avif" alt="" class="h-full sticky top-0 object-cover">
+   <div class="h-screen p-24 top-0">
+      <div class="flex flex-col pb-24">
+        <h1 class="font-Monigue text-[#fc5151] text-9xl font-monigue text-[12rem] leading-none">EDC. DESIGN</h1>
+        <h3 class="text-[#a8dadc] font-Gambetta italic text-xl mb-12">(Based in Argentina)</h3>
+        <a href="mailto:enrique.delcarril3@gmail.com" class="text-[#fc5151] font-Inter font-semibold text-lg mt-8">enrique.delcarril3@gmail.com</a>
+        <a href="mailto:enrique.delcarril3@gmail.com" class="text-[#a8dadc] font-Inter font-semibold text-lg mb-12">Let's Talk!</a>
+        <h3 class="text-[#a8dadc] font-Gambetta italic text-xl">(About Me)</h3>
+        <p class="text-[#a8dadc] font-Inter font-regular text-xl mt-24">I'm Enrique, a graphic and web designer passionate about creating visually compelling, user-focused experiences. By blending creativity with functionality, I aim to deliver digital solutions that not only look stunning but also provide seamless, impactful results.</p>
+      </div>
     </div>
+    
+  </div>
+      
+  
 
   </div>
   <div class="flex justify-between px-24 pt-12 bg-[#1D3557]">
@@ -86,7 +88,7 @@
               </li>
           </ul>
         </div>
-        <a href="#home-section" class="text-[#1D3557] font-Inter font-semibold text-xl mt-12 underline">Back to Top</a>
+        <a href="#home-section" class="text-[#1D3557] font-Inter font-semibold text-xl mt-12 underline underline-offset-2">Back to Top</a>
     </div>
     </footer>
 
@@ -98,7 +100,7 @@
   }
 
   async function loadData() {
-    const response = await fetch('projects/data.json');
+    const response = await fetch('projects/data2.json');
     return response.json();
   }
 
@@ -107,16 +109,18 @@
     const data = await loadData();
     const grid = document.getElementById('card-project');
     
-    data.forEach(item => {
+    data.slice(0, 4).forEach(item => {
       let card = component
         .replace('{image}', item.image)
         .replace('{alt}', item.alt)
         .replace('{title}', item.title)
-        .replace('{description}', item.description)
-        .replace('{link}', item.link);
+        .replace('{year}', item.year)
+        .replace('{link}', item.link)
+        .replace('{slug}', item.slug);
         grid.innerHTML += card;
     });
   }
+  
 
   renderCards();
 
@@ -124,3 +128,5 @@
   </body>
 
 </html>
+
+
