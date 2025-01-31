@@ -20,3 +20,7 @@
 .scrollbar::-webkit-scrollbar { 
   display: none;
 }
+
+html, body {
+  overflow-x: hidden;
+}

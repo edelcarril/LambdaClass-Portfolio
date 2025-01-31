@@ -1,7 +1,7 @@
 function loadFooter() {
     return `
     <footer class="h-full justify-center bg-[#a8dadc] py-12 lg:py-24 overflow-x-hidden">
-        <img src="/vite.svg" alt="" class="px-24 h-[50%] py-12">
+        <img src="/edc-logo-blue.svg" alt="" class="px-8 md:px-24 w-[75%] md:w-[50%] py-12">
         <div class="md:grid md:grid-cols-2 md:gap-24 relative px-8 md:px-24">
             <div class="md:mt-0">
                 <h2 class="text-[#1D3557] font-Gambetta italic text-xl mb-6">(Pages)</h2>
@@ -43,7 +43,6 @@ function loadFooter() {
     `;
 }
 
-// Cargar el footer en todas las páginas que lo incluyan
 document.addEventListener("DOMContentLoaded", function () {
     const footerContainer = document.getElementById("footer-container");
     if (footerContainer) {
@@ -57,30 +56,23 @@ function loadNav() {
     <!-- Sección del Logo y Menú -->
     <div class="flex items-center justify-between px-6 md:px-12 lg:px-24 py-4">
         <!-- Logo -->
-        <img src="/vite.svg" alt="Logo" class="w-6 md:w-8 lg:w-10">
+        <img src="/edc-logo.svg" alt="Logo" class="w-6 md:w-16 lg:w-20">
         
         <!-- Menú y Botón en una sola línea -->
         <nav class="flex items-center gap-6 md:gap-12">
             <ul class="flex items-center gap-6 md:gap-8">
-                <li class="cursor-pointer hover:underline text-[#fc5151] text-xs md:text-base lg:text-lg">Work</li>
-                <li class="cursor-pointer hover:underline text-[#fc5151] text-xs md:text-base lg:text-lg">Service</li>
-                <li class="cursor-pointer hover:underline text-[#fc5151] text-xs md:text-base lg:text-lg">About</li>
+                <a href="#projects"><li class="cursor-pointer hover:underline text-[#fc5151] text-xs md:text-base lg:text-lg">Work</li></a>
+                <a href="#projects"><li class="cursor-pointer hover:underline text-[#fc5151] text-xs md:text-base lg:text-lg">Services</li></a>
+                <a href="#home-section"><li class="cursor-pointer hover:underline text-[#fc5151] text-xs md:text-base lg:text-lg">About</li></a>
             </ul>
             <button class="underline text-[#fc5151] text-xs md:text-lg">Let's Talk!</button>
         </nav>
     </div>
 </header>
-
-
-
-
-
-
     `;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Cargar la nav
     const navContainer = document.getElementById("nav-container");
     if (navContainer) {
         navContainer.innerHTML = loadNav();

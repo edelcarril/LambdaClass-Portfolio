@@ -3,26 +3,19 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="icon" type="image/svg+xml" href="/edc-logo.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>edc.dsgn</title>
   <link rel="stylesheet" href="style.css" />
   <script src="../src/components.js" type="text/javascript" defer></script>
-  
-  <style>
-    html, body {
-      overflow-x: hidden;
-    }
-  </style>
 
 </head>
 
 <body class="bg-[#1d3557] relative w-full overflow-x-hidden">
   <header id="nav-container" class="w-full"></header>
-  
-  <!-- Sección principal -->
+
   <div class="relative w-full overflow-y-auto scrollbar grid grid-cols-1 md:grid-cols-2" id="home-section">
-    <img src="/Earthling-Logo.avif" alt="" class="w-full h-full relative top-0 md:sticky md:top-0 object-cover max-w-full">
+    <img src="/edc-stationery.png" alt="Logo" class="w-full h-full relative top-0 md:sticky md:top-0 object-cover max-w-full">
     <div class="h-full md:h-screen w-full p-8 md:p-24 top-0">
       <div class="flex flex-col pb-24">
         <h1 class="font-Monigue text-[#fc5151] text-[4rem] md:text-[6rem] lg:text-[12rem] leading-none">EDC. DESIGN</h1>
@@ -38,8 +31,7 @@
     </div>
   </div>
 
-  <!-- Sección de proyectos -->
-  <div class="flex justify-between px-8 pt-12 md:px-24 bg-[#1D3557]">
+  <div class="flex justify-between px-8 pt-12 md:px-24 bg-[#1D3557]" id="projects">
     <h3 class="text-[#a8dadc] font-Gambetta italic text-xl">(Selected Work)</h3>
     <p class="text-[#a8dadc] font-Gambetta italic text-xl">(01)</p>
   </div>
@@ -48,7 +40,7 @@
     <h1 class="font-Monigue font-regular text-[#fc5151] text-[5rem] md:text-[8rem] lg:text-[12rem] xl:text-[14rem]">
       PROJECTS
     </h1>
-    <button class="bg-[#fc5151] text-[#1D3557] font-semibold w-[30%] md:w-[20%] text-[0.8rem] md:text-[1rem] lg:text-[1.5rem] xl:text-[2rem] rounded-full p-2 md:p-2">
+    <button class="bg-[#fc5151] text-[#1D3557] font-semibold w-[30%] md:w-[20%] text-[0.8rem] md:text-[1rem] lg:text-[1.5rem] xl:text-[2rem] rounded-full p-2 md:p-2" href="https://www.behance.net/enriquedelcar1">
       View All
     </button>
   </div>
@@ -60,7 +52,6 @@
       </h2>
     </div>
     
-    <!-- Tarjetas de proyectos -->
     <div id="card-project" class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 w-full"></div>
   </div>
 
@@ -81,16 +72,18 @@
       const component = await loadComponent();
       const data = await loadData();
       const grid = document.getElementById('card-project');
-      
-      data.slice(0, 4).forEach(item => {
-        let card = component
+      const cardsToLoad = 4;
+
+      data.slice(0, cardsToLoad).forEach(item => {
+        let card = document.createElement('div');
+        card.innerHTML = component
           .replace('{image}', item.image)
           .replace('{alt}', item.alt)
           .replace('{title}', item.title)
           .replace('{year}', item.year)
           .replace('{link}', item.link)
           .replace('{slug}', item.slug);
-        grid.innerHTML += card;
+        grid.appendChild(card);
       });
     }
 

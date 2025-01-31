@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/edc-logo.svg" />
     <link rel="stylesheet" href="../style.css" />
     <script src="../src/components.js" type="text/javascript" defer></script>
 
-    <title>Proyecto - {title}</title>
+    <title>work</title>
 </head>
 <body class="relative overflow-x-hidden w-full">
+    <header id="nav-container" class="w-full"></header>
 
     <div class="flex flex-col justify-between md:p-24 p-16 md:pl-4 bg-[#1D3557]">
 
@@ -37,7 +39,7 @@
         <img src="{image}" alt="" class="image w-full object-cover">
     </div>
     <div class="relative bg-[#1d3557] flex flex-col md:flex-row p-12  md:pl-24 justify-between">
-        <!-- Contenedor Sticky -->
+
         <div class=" top-0 left-0 w-full bg-[#1d3557]">
             <div class="text-6xl md:text-8xl text-[#fc5151] font-Monigue uppercase w-full md:sticky top-12">
                 <h2 class="headline1">{headline1}</h2>
@@ -45,7 +47,6 @@
             </div>
         </div>
     
-        <!-- Contenido Scrollable -->
         <div class="flex flex-col w-full md:px-12 gap-12 min-h-[200vh]">
             <h3 class="text-xl md:text-4xl xl:text-5xl text-[#fc5151] font-Inter font-semibold sub1">{sub1}</h3>
             <p class="year text-lg md:text-xl xl:text-2xl text-[#a8dadc] font-Inter font-medium desc">{desc}</p>
@@ -63,7 +64,7 @@
         
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Obtener el slug de la URL
+
             const params = new URLSearchParams(window.location.search);
             const slug = params.get("slug");
     
@@ -81,14 +82,12 @@
                         return;
                     }
     
-                    // Función para actualizar elementos por clase
                     function updateElements(className, value) {
                         document.querySelectorAll(`.${className}`).forEach(element => {
                             element.innerHTML = value;
                         });
                     }
     
-                    // Actualizar contenido dinámico
                     updateElements("title", project.title);
                     updateElements("intro", project.intro);
                     updateElements("services", project.services);
@@ -98,7 +97,6 @@
                     updateElements("sub1", project.sub1);
                     updateElements("desc", project.desc);
     
-                    // Manejo de imágenes
                     const projectImages = document.querySelectorAll(".image");
                     projectImages.forEach((element, index) => {
                         let imageUrl = "";
