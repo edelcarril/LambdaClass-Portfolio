@@ -6,3 +6,21 @@
   font-family: 'Monigue';
   src: url('/Monigue.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'Gambetta';
+  src: url('https://api.fontshare.com/v2/css?f[]=gambetta@401&display=swa');
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+}
+
+.scrollbar::-webkit-scrollbar { 
+  display: none;
+}
+
+html, body {
+  overflow-x: hidden;
+}

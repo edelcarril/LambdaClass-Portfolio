@@ -1,72 +1,94 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="icon" type="image/svg+xml" href="/edc-logo.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Crystal Math</title>
+  <title>edc.dsgn</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Press+Start+2P&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="../src/components.js" type="text/javascript" defer></script>
+
 </head>
 
-<body class="bg-[#fc5151] relative w-full">
-  <header class="absolute text-[#fc5151] grid grid-cols-6 px-8 py-4 w-full">
-    <div class="col-span-3 col-start-1"><img src="/vite.svg" alt=""></div>
-    <ul class="col-span-2 col-start-4 flex items-center justify-start gap-12 px-24">
-      <li>Work</li>
-      <li>Service</li>
-      <li>About</li>
-    </ul>
-    <button class="flex justify-end px-8 items-center underline">Let's Talk!</button>
-  </header>
-  <div class="grid md:grid-cols-2 h-screen">
-    <img src="" alt="" class="bg-white">
-    <div class="bg-[#1D3557] p-24">
-      <h1 class="font-Monigue text-[#fc5151] text-9xl font-monigue">EDC. <br>DSGN</h1>
-    </div>
+<body class="bg-[#1d3557] relative w-full overflow-x-hidden">
+  <header id="nav-container" class="w-full"></header>
 
+  <div class="relative w-full overflow-y-auto scrollbar grid grid-cols-1 md:grid-cols-2" id="home-section">
+    <img src="/edc-stationery.png" alt="Logo" class="w-full h-full relative top-0 md:sticky md:top-0 object-cover max-w-full">
+    <div class="h-full md:h-screen w-full p-8 md:p-24 top-0">
+      <div class="flex flex-col pb-24">
+        <h1 class="font-Monigue text-[#fc5151] text-[4rem] md:text-[6rem] lg:text-[12rem] leading-none">EDC. DESIGN</h1>
+        <h3 class="text-[#a8dadc] font-Gambetta italic text-xl mb-12">(Based in Argentina)</h3>
+        <a href="mailto:enrique.delcarril3@gmail.com" class="text-[#fc5151] font-Inter font-semibold text-lg mt-8">enrique.delcarril3@gmail.com</a>
+        <a href="mailto:enrique.delcarril3@gmail.com" class="text-[#a8dadc] font-Inter font-semibold text-lg mb-12">Let's Talk!</a>
+        <h3 class="text-[#a8dadc] font-Gambetta italic text-xl">(About Me)</h3>
+        <p class="text-[#a8dadc] font-Inter font-regular text-lg mt-24">
+          I'm Enrique, a graphic and web designer passionate about creating visually compelling, user-focused experiences. 
+          By blending creativity with functionality, I aim to deliver digital solutions that not only look stunning but also provide seamless, impactful results.
+        </p>
+      </div>
+    </div>
   </div>
-  
-    <div class="bg-[#1D3557] py-12 px-24 flex items-center justify-between">
-      <h1 class="font-Monigue font-regular text-[#fc5151] text-9xl">PROJECTS</h1>
-      <button class="bg-[#fc5151] text-[#1D3557] font-semibold w-[10%] rounded-full p-2">View All</button>
-    </div>
-    <div class="bg-[#1D3557] px-24 flex items-center justify-between">
-      <h2 class="text-7xl">Explore our recent projects showcasing creativity, innovation, and impactful design solutions.</h1>
-    </div>
-    <div class="grid grid-cols-2 grid-rows-2">
-      <div class="flex flex-col col-start-1 items-center justify-center">
-        <img src="" alt="" class="h-fit w-fit">
-        <h3>Earthling Digital</h3>
-        <p>(2024)</p>
-      </div>
-      <div class="flex flex-col col-start-2 items-center justify-center">
-        <img src="" alt="" class="h-fit w-fit">
-        <h3>Earthling Digital</h3>
-        <p>(2024)</p>
-      </div>
-      <div class="flex flex-col col-start-1 row-start-2 items-center justify-center">
-        <img src="" alt="" class="h-fit w-fit">
-        <h3>Earthling Digital</h3>
-        <p>(2024)</p>
-      </div>
-      <div class="flex flex-col col-start-2 row-start-2 items-center justify-center">
-        <img src="" alt="" class="h-fit w-fit">
-        <h3>Earthling Digital</h3>
-        <p>(2024)</p>
-      </div>
-    </div>
 
+  <div class="flex justify-between px-8 pt-12 md:px-24 bg-[#1D3557]" id="projects">
+    <h3 class="text-[#a8dadc] font-Gambetta italic text-xl">(Selected Work)</h3>
+    <p class="text-[#a8dadc] font-Gambetta italic text-xl">(01)</p>
+  </div>
 
-  
+  <div class="bg-[#1D3557] px-8 md:pt-6 md:px-24 flex flex-col md:flex-row items-center justify-between pb-6">
+    <h1 class="font-Monigue font-regular text-[#fc5151] text-[5rem] md:text-[8rem] lg:text-[12rem] xl:text-[14rem]">
+      PROJECTS
+    </h1>
+    <button class="bg-[#fc5151] text-[#1D3557] font-semibold w-[30%] md:w-[20%] text-[0.8rem] md:text-[1rem] lg:text-[1.5rem] xl:text-[2rem] rounded-full p-2 md:p-2" href="https://www.behance.net/enriquedelcar1">
+      View All
+    </button>
+  </div>
+
+  <div class="bg-[#1D3557] flex flex-col gap-12">
+    <div class="px-8 md:px-24 flex items-center justify-between">
+      <h2 class="text-2xl md:text-5xl lg:text-7xl font-Inter font-semibold text-[#a8dadc]">
+        Explore our recent projects showcasing creativity, innovation, and impactful design solutions.
+      </h2>
+    </div>
+    
+    <div id="card-project" class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 w-full"></div>
+  </div>
+
+  <footer class="w-full" id="footer-container"></footer>
+
+  <script>
+    async function loadComponent() {
+      const response = await fetch('projects/card.html');
+      return response.text();
+    }
+
+    async function loadData() {
+      const response = await fetch('projects/data2.json');
+      return response.json();
+    }
+
+    async function renderCards() {
+      const component = await loadComponent();
+      const data = await loadData();
+      const grid = document.getElementById('card-project');
+      const cardsToLoad = 4;
+
+      data.slice(0, cardsToLoad).forEach(item => {
+        let card = document.createElement('div');
+        card.innerHTML = component
+          .replace('{image}', item.image)
+          .replace('{alt}', item.alt)
+          .replace('{title}', item.title)
+          .replace('{year}', item.year)
+          .replace('{link}', item.link)
+          .replace('{slug}', item.slug);
+        grid.appendChild(card);
+      });
+    }
+
+    renderCards();
+  </script>
+
 </body>
-
 </html>
